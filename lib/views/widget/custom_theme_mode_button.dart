@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_and_register_pages/logic/theme_cuibt/theme_cuibt.dart';
+import 'package:login_and_register_pages/logic/theme/theme_cuibt.dart';
 
 class ThemeModeButton extends StatelessWidget {
   const ThemeModeButton({
