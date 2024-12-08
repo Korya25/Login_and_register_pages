@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:login_and_register_pages/views/widget/custom_text_form_field.dart';
 
 class Login extends StatelessWidget {
   // Email and Pw controller
 
+  final TextEditingController _emailTextEditingController =
+      TextEditingController();
   // Login method
 
   // tap to go to register page
 
-  const Login({super.key});
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,13 @@ class Login extends StatelessWidget {
               height: 25,
             ),
             // Email Text Field
-
+            CustomTextFormField(
+              hintText: 'Email',
+              hasSuffixIcon: true,
+              obscureText: false,
+              textEditingController: _emailTextEditingController,
+              validator: (String) {},
+            ),
             // Pw Text Field
 
             // Login Button
