@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:login_and_register_pages/views/screens/auth/register_page.dart';
 import 'package:login_and_register_pages/views/widget/custom_forget_password.dart';
 import 'package:login_and_register_pages/views/widget/custom_loginor_signup_button.dart';
 import 'package:login_and_register_pages/views/widget/custom_text_form_field.dart';
 
 // ignore: must_be_immutable
-class Login extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   // Email and Pw controller
   final TextEditingController _emailTextEditingController =
       TextEditingController();
@@ -19,7 +18,7 @@ class Login extends StatelessWidget {
   void login() {}
   // tap to go to register page
 
-  Login({super.key});
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +98,9 @@ class Login extends StatelessWidget {
                         TextStyle(color: Theme.of(context).colorScheme.primary),
                   ),
                   GestureDetector(
-                    onTap: () => RegisterPage(),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       'Regiser Now',
                       style: TextStyle(
