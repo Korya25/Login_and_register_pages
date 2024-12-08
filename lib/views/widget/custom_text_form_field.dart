@@ -15,6 +15,8 @@ class CustomTextFormField extends StatefulWidget {
     this.obscureText = false,
     required this.validator,
     this.hasSuffixIcon = false,
+    this.keyboardType,
+    required this.onSaved,
   });
 
   final String hintText; // Placeholder text
@@ -22,7 +24,8 @@ class CustomTextFormField extends StatefulWidget {
   final bool hasSuffixIcon; // Show a suffix icon for toggling obscureText
   final String? Function(String?)? validator; // Validation function
   final TextEditingController? textEditingController; // Text field controller
-
+  final TextInputType? keyboardType; // keyboardType
+  final void Function(String?)? onSaved;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -43,6 +46,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       padding:
           const EdgeInsets.symmetric(horizontal: 25), // Add horizontal padding
       child: TextFormField(
+        onSaved: widget.onSaved,
+        keyboardType: widget.keyboardType,
         validator: widget.validator, // Use the passed validator
         controller: widget.textEditingController, // Bind the controller
         obscureText:

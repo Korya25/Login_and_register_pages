@@ -6,6 +6,8 @@ class Login extends StatelessWidget {
 
   final TextEditingController _emailTextEditingController =
       TextEditingController();
+  final TextEditingController _pwTextEditingController =
+      TextEditingController();
   // Login method
 
   // tap to go to register page
@@ -43,13 +45,25 @@ class Login extends StatelessWidget {
             // Email Text Field
             CustomTextFormField(
               hintText: 'Email',
-              hasSuffixIcon: true,
-              obscureText: false,
+              keyboardType: TextInputType.emailAddress,
               textEditingController: _emailTextEditingController,
-              validator: (String) {},
+              validator: (String) {
+                return null;
+              },
+              onSaved: (String) {},
             ),
-            // Pw Text Field
 
+            const SizedBox(height: 10),
+
+            // Pw Text Field
+            CustomTextFormField(
+              hintText: 'Password',
+              textEditingController: _pwTextEditingController,
+              validator: (String) {
+                return null;
+              },
+              onSaved: (String) {},
+            ),
             // Login Button
 
             // Register Now
