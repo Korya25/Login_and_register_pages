@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomForgetPassword extends StatelessWidget {
-  const CustomForgetPassword({super.key});
+  const CustomForgetPassword(
+      {super.key, required Null Function() onResetPassword});
   // Reset Password
   void resetPassword() {}
   @override
