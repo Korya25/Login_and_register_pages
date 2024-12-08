@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:login_and_register_pages/firebase/functions.dart';
 import 'package:login_and_register_pages/views/widget/custom_loginor_signup_button.dart';
 import 'package:login_and_register_pages/views/widget/custom_text_form_field.dart';
 
+// ignore: must_be_immutable
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
@@ -15,11 +17,17 @@ class RegisterPage extends StatelessWidget {
   /// Form key for validation
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  String? _email;
+  String? _displayName;
+  String? _password;
+
   /// Sign-up method
-  void _signup(BuildContext context) {
+  void _signup(BuildContext context) async {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState?.save();
       // Add your sign-up logic here
+      await AuthService().register(
+          email: _email!, password: _password!, userName: _displayName!);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Registration successful')),
       );
@@ -91,7 +99,9 @@ class RegisterPage extends StatelessWidget {
 
                 // Username Field
                 CustomTextFormField(
-                  onSaved: (String) {},
+                  onSaved: (data) {
+                    _displayName = data;
+                  },
                   hintText: 'Username',
                   keyboardType: TextInputType.name,
                   textEditingController: _usernameController,
@@ -109,7 +119,9 @@ class RegisterPage extends StatelessWidget {
 
                 // Email Field
                 CustomTextFormField(
-                  onSaved: (String) {},
+                  onSaved: (data) {
+                    _email = data;
+                  },
                   hintText: 'Email',
                   keyboardType: TextInputType.emailAddress,
                   textEditingController: _emailController,
@@ -119,7 +131,9 @@ class RegisterPage extends StatelessWidget {
 
                 // Password Field
                 CustomTextFormField(
-                  onSaved: (String) {},
+                  onSaved: (data) {
+                    _password = data;
+                  },
                   hasSuffixIcon: true,
                   hintText: 'Password',
                   keyboardType: TextInputType.visiblePassword,
@@ -131,7 +145,9 @@ class RegisterPage extends StatelessWidget {
 
                 // Confirm Password Field
                 CustomTextFormField(
-                  onSaved: (String) {},
+                  onSaved: (data) {
+                    _password = data;
+                  },
                   hasSuffixIcon: true,
                   hintText: 'Confirm Password',
                   keyboardType: TextInputType.visiblePassword,
