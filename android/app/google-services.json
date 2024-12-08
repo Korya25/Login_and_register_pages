@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1070571847901",
+    "project_id": "testauthenticaction",
+    "storage_bucket": "testauthenticaction.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070571847901:android:0e667241779370e1199b34",
+        "android_client_info": {
+          "package_name": "com.example.login_and_register_pages"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZw7WtwCzLObNfglBGYhcu7m3QCkvBFiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
